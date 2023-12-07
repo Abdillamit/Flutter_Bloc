@@ -4,8 +4,13 @@ class CounterCubit extends Cubit<int> {
   CounterCubit() : super(0);
 
   void incriment() {
-    print("Before: $state");
     emit(state + 1);
-    print("After: $state");
+  }
+
+  void decrement() {
+    if (state == 0) {
+      return;
+    }
+    emit(state - 1);
   }
 }
