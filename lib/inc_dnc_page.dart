@@ -31,6 +31,9 @@ class IncDecPage extends StatelessWidget {
             tooltip: 'Decrement',
             child: const Icon(Icons.minimize),
           ),
+          const SizedBox(
+            height: 15,
+          ),
           FloatingActionButton(
             heroTag: null,
             onPressed: () {
