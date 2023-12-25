@@ -1,3 +1,4 @@
+import 'package:counter_blc/bloc/counter_bloc.dart';
 import 'package:counter_blc/cubit/counter_cubit.dart';
 import 'package:counter_blc/inc_dnc_page.dart';
 import 'package:flutter/material.dart';
@@ -12,7 +13,6 @@ class MyHomePage extends StatelessWidget {
   final String title;
   @override
   Widget build(BuildContext context) {
-    final counterCubit = BlocProvider.of<CounterCubit>(context);
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Theme.of(context).colorScheme.inversePrimary,
@@ -25,8 +25,7 @@ class MyHomePage extends StatelessWidget {
             const Text(
               'You have pushed the button this many times:',
             ),
-            BlocBuilder<CounterCubit, int>(
-              bloc: counterCubit,
+            BlocBuilder<CounterBloc, int>(
               builder: (context, counter) {
                 return Text(
                   '$counter',
@@ -43,7 +42,6 @@ class MyHomePage extends StatelessWidget {
           Navigator.of(context).push(MaterialPageRoute(
             builder: (context) => const IncDecPage(),
           ));
-          print("NextPage");
         },
         child: const Icon(Icons.navigate_next),
       ),
